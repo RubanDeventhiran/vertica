@@ -19,7 +19,7 @@ namespace VerticaConnectionIssues.Sample
             IEnumerable<Tuple<DataTable, Func<string, string>>> tuples = new List<Tuple<DataTable, Func<string, string>>>
             {
                 new Tuple<DataTable,  Func<string, string>>(new DataTable(), schemaName => String.Format("select * from {0}.{1};", schemaName,TestConfig.Table1)),
-                new Tuple<DataTable,  Func<string, string>>(new DataTable(), schemaName => String.Format( "select * from {0}.{2};", schemaName, TestConfig.Table2)),
+                new Tuple<DataTable,  Func<string, string>>(new DataTable(), schemaName => String.Format( "select * from {0}.{1};", schemaName, TestConfig.Table2)),
             };
 
             using (var conn = new VerticaConnection(TestConfig.ConnectionString))
