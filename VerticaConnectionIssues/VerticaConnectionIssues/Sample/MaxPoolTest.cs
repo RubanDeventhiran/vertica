@@ -7,6 +7,11 @@ using Vertica.Data.VerticaClient;
 
 namespace VerticaConnectionIssues.Sample
 {
+    // The connection pool for this is set to 1. Hence if multiple threads are trying to read data from the database they should not be able 
+    // to do so simultaneously. To recreate this we start two threads such that one of the thread(id = 1) waits for 2 sec before it stats, meanwhile
+    // the other thread(id= 2) will go ahead and get the connection and read data from it after which it will wait such that the connection is still
+    // held by this thread. now thread(id =1) awakens and it is still able to get the connection to db and process it, shouldnt it have waited for 
+    // thread(id = 2) to finish before it gets a hold of db.
     [TestFixture]
     internal class MaxPoolTest
     {
