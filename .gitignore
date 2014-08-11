@@ -1,6 +1,6 @@
 **/local.App.Config
-**/bin/*
+**/*/bin/*
 **/packages/*
-**/obj/*
+**/*/obj/*
 **/*.suo
 **/*.DotSettings.user
